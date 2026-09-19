@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аккаунтты өшіру — Ұзынағаш Такси</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#666; --line:#e5e5e5;
+    --accent:#E8930C; --card:#faf9f7;
+    --warn-bg:#fff8e6; --warn-line:#f0d9a0;
+    --danger-bg:#fdf1f1; --danger-line:#f0c8c8; --danger:#b32020;
+    --ok-bg:#f1f8f2; --ok-line:#cfe6d3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141414; --fg:#ececec; --muted:#9a9a9a; --line:#2c2c2c;
+      --accent:#f5a623; --card:#1c1c1c;
+      --warn-bg:#2a2313; --warn-line:#4a3d1c;
+      --danger-bg:#2a1616; --danger-line:#4a2323; --danger:#ff8a8a;
+      --ok-bg:#16241a; --ok-line:#26402c;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:24px 20px 64px}
+  header{border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:24px}
+  .brand{font-weight:700; font-size:18px; letter-spacing:-.01em}
+  .brand span{color:var(--accent)}
+  h1{font-size:26px; line-height:1.25; margin:18px 0 6px; letter-spacing:-.02em}
+  h2{font-size:19px; margin:32px 0 8px; letter-spacing:-.01em}
+  .meta{color:var(--muted); font-size:14px; margin:0}
+  ul{padding-left:20px; margin:8px 0}
+  li{margin:5px 0}
+  ol{padding-left:22px; margin:10px 0}
+  ol li{margin:8px 0}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0}
+  .card p:first-child{margin-top:0} .card p:last-child{margin-bottom:0}
+  .card h3{margin:0 0 8px; font-size:16px}
+  .warn{background:var(--warn-bg); border-color:var(--warn-line)}
+  .danger{background:var(--danger-bg); border-color:var(--danger-line)}
+  .danger h3{color:var(--danger)}
+  .ok{background:var(--ok-bg); border-color:var(--ok-line)}
+  a{color:var(--accent)}
+  .langbar{display:flex; gap:8px; margin-bottom:4px}
+  .langbar button{
+    font:inherit; font-size:14px; padding:6px 14px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--line); background:transparent; color:var(--muted);
+  }
+  .langbar button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+  .mail{
+    display:inline-block; font-weight:600; font-size:17px;
+    padding:10px 16px; border-radius:10px; text-decoration:none;
+    background:var(--accent); color:#fff; margin:6px 0;
+  }
+  footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:14px}
+  [hidden]{display:none !important}
+  code{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">Ұзынағаш <span>Такси</span></div>
+</header>
+
+<div class="langbar">
+  <button id="btn-kk" aria-pressed="true" onclick="setLang('kk')">Қазақша</button>
+  <button id="btn-ru" aria-pressed="false" onclick="setLang('ru')">Русский</button>
+</div>
+
+<!-- ================= KAZAKH ================= -->
+<section id="kk">
+
+<h1>Аккаунтты өшіру</h1>
+<p class="meta">Қосымша: Ұзынағаш Такси · Әзірлеуші: ЖК «Damu IT» · Жаңартылған күні: 18.09.2026</p>
+
+<p>Аккаунтыңызды және жеке деректеріңізді кез келген уақытта өшіре аласыз. Мұны істеудің екі жолы бар.</p>
+
+<h2>1-жол. Қосымша арқылы (лезде орындалады)</h2>
+<div class="card ok">
+  <ol>
+    <li>«Ұзынағаш Такси» қосымшасын ашыңыз</li>
+    <li><strong>Профиль</strong> бөліміне өтіңіз</li>
+    <li>Бетті ең төменге дейін сырғытыңыз</li>
+    <li>Қызыл түсті <strong>«Аккаунтты өшіру»</strong> батырмасын басыңыз</li>
+    <li>Не өшетінін оқып шығыңыз да, растаңыз</li>
+  </ol>
+  <p>Растағаннан кейін өшіру <strong>бірден</strong> орындалады. Күтудің қажеті жоқ.</p>
+</div>
+
+<h2>2-жол. Пошта арқылы</h2>
+<p>Қосымшаны орната алмасаңыз немесе телефоныңызға қолжетімділік болмаса, өшіруді поштамен сұраңыз:</p>
+
+<p><a class="mail" href="mailto:uzynagashtaxi@gmail.com?subject=%D0%90%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D1%82%D1%8B%20%D3%A9%D1%88%D1%96%D1%80%D1%83">uzynagashtaxi@gmail.com</a></p>
+
+<p>Хатта мынаны жазыңыз:</p>
+<ul>
+  <li>Тақырыбы: <code>Аккаунтты өшіру</code></li>
+  <li>Қосымшада тіркелген <strong>телефон нөміріңіз</strong></li>
+</ul>
+
+<div class="card warn">
+  <p>Бөтен адамның аккаунтын өшіріп алмау үшін біз сіздің сол нөмірдің иесі екеніңізді тексереміз — көрсетілген нөмірге хабарласамыз немесе SMS жібереміз.</p>
+  <p>Сұрау <strong>30 күн ішінде</strong> орындалады. Әдетте әлдеқайда тез.</p>
+</div>
+
+<h2>Не жойылады</h2>
+<div class="card danger">
+  <h3>Біржола жойылады</h3>
+  <ul>
+    <li>Атыңыз және телефон нөміріңіз</li>
+    <li>Барлық құжат суреттері мен селфиіңіз</li>
+    <li>Көлік мәліметтеріңіз және Kaspi нөміріңіз</li>
+    <li>Сақталған мекенжайларыңыз</li>
+    <li>Жіберген кері байланысыңыз</li>
+    <li>Хабарландыру жіберуге арналған құрылғы жазбалары</li>
+    <li>Кіру мүмкіндігі — бұл нөмірмен енді кіре алмайсыз</li>
+  </ul>
+</div>
+
+<h2>Не сақталады</h2>
+<div class="card">
+  <p>Аяқталған сапарлардың <strong>қаржы жазбалары</strong> — күні, бағасы, комиссиясы — бухгалтерлік есеп пен салық заңнамасының талабына сай сақталады.</p>
+  <p>Бірақ олар <strong>сізбен байланысын жоғалтады</strong>: атыңыз да, нөміріңіз де, нақты мекенжайыңыз да қалмайды. Сапардың координаттары шамамен 100 метрге дейін дөңгелектенеді, ал мекенжай атаулары өшіріледі. Ондай жазба бойынша сізді анықтау мүмкін емес.</p>
+  <p>Бұл деректер басқа адамдардың — мысалы сізді тасыған жүргізушінің — тарихын сақтау үшін де қажет.</p>
+</div>
+
+<h2>Қашан өшіру мүмкін болмайды</h2>
+<div class="card warn">
+  <p>Аккаунт <strong>аяқталмаған сапарыңыз бар кезде</strong> өшірілмейді:</p>
+  <ul>
+    <li>Такси іздеп жатсаңыз немесе сапар жүріп жатса</li>
+    <li>Попуткаға брондауыңыз белсенді болса</li>
+    <li>Жүргізуші ретінде попутка жариялап, ол әлі аяқталмаса</li>
+  </ul>
+  <p>Мұның себебі — сапар ортасында екінші тараптың байланыссыз қалмауы. Сапарды аяқтаңыз немесе бас тартыңыз, содан кейін өшіру қолжетімді болады.</p>
+</div>
+
+<h2>Балансыңыз болса</h2>
+<p>Жүргізуші ретінде балансыңызда ақша қалса, ол <strong>қайтарылмайды</strong> — өшірер алдында әкімшіге хабарласыңыз. Ал борышыңыз болса, өшіру оны жоймайды: қаржы жазбасы сақталып қалады.</p>
+
+<h2>Қосымша сұрақтар</h2>
+<div class="card">
+  <p>Пошта: <a href="mailto:uzynagashtaxi@gmail.com">uzynagashtaxi@gmail.com</a><br>
+  Телефон: <a href="tel:+77073088272">+7 707 308 8272</a></p>
+  <p>Деректерді қалай өңдейтінімізді <a href="privacy.html">Құпиялылық саясатынан</a> оқи аласыз.</p>
+</div>
+
+</section>
+
+<!-- ================= RUSSIAN ================= -->
+<section id="ru" hidden>
+
+<h1>Удаление аккаунта</h1>
+<p class="meta">Приложение: Ұзынағаш Такси · Разработчик: ИП «Damu IT» · Обновлено: 18.09.2026</p>
+
+<p>Вы можете удалить свой аккаунт и персональные данные в любой момент. Есть два способа.</p>
+
+<h2>Способ 1. Через приложение (выполняется сразу)</h2>
+<div class="card ok">
+  <ol>
+    <li>Откройте приложение «Ұзынағаш Такси»</li>
+    <li>Перейдите в раздел <strong>Профиль</strong></li>
+    <li>Прокрутите страницу до самого низа</li>
+    <li>Нажмите красную кнопку <strong>«Удалить аккаунт»</strong></li>
+    <li>Прочитайте, что будет удалено, и подтвердите</li>
+  </ol>
+  <p>После подтверждения удаление происходит <strong>немедленно</strong>. Ждать не нужно.</p>
+</div>
+
+<h2>Способ 2. По электронной почте</h2>
+<p>Если у вас нет возможности установить приложение или нет доступа к телефону, запросите удаление письмом:</p>
+
+<p><a class="mail" href="mailto:uzynagashtaxi@gmail.com?subject=%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0">uzynagashtaxi@gmail.com</a></p>
+
+<p>В письме укажите:</p>
+<ul>
+  <li>Тема: <code>Удаление аккаунта</code></li>
+  <li>Ваш <strong>номер телефона</strong>, на который зарегистрирован аккаунт</li>
+</ul>
+
+<div class="card warn">
+  <p>Чтобы никто не удалил чужой аккаунт, мы проверяем, что вы являетесь владельцем номера — позвоним на указанный номер или отправим SMS.</p>
+  <p>Запрос выполняется <strong>в течение 30 дней</strong>. Обычно значительно быстрее.</p>
+</div>
+
+<h2>Что удаляется</h2>
+<div class="card danger">
+  <h3>Удаляется безвозвратно</h3>
+  <ul>
+    <li>Ваше имя и номер телефона</li>
+    <li>Все фотографии документов и селфи</li>
+    <li>Данные автомобиля и номер Kaspi</li>
+    <li>Сохранённые адреса</li>
+    <li>Отправленные вами отзывы</li>
+    <li>Записи устройств для отправки уведомлений</li>
+    <li>Возможность входа — с этим номером войти больше нельзя</li>
+  </ul>
+</div>
+
+<h2>Что сохраняется</h2>
+<div class="card">
+  <p><strong>Финансовые записи</strong> завершённых поездок — дата, цена, комиссия — сохраняются согласно требованиям бухгалтерского учёта и налогового законодательства.</p>
+  <p>Но они <strong>теряют связь с вами</strong>: не остаётся ни имени, ни номера, ни точного адреса. Координаты поездки округляются примерно до 100 метров, а названия адресов удаляются. По такой записи определить вас невозможно.</p>
+  <p>Эти данные нужны и для сохранения истории других людей — например, водителя, который вас перевозил.</p>
+</div>
+
+<h2>Когда удаление недоступно</h2>
+<div class="card warn">
+  <p>Аккаунт <strong>нельзя удалить при незавершённой поездке</strong>:</p>
+  <ul>
+    <li>Если идёт поиск такси или поездка в процессе</li>
+    <li>Если у вас активное бронирование в попутке</li>
+    <li>Если вы как водитель опубликовали попутку и она ещё не завершена</li>
+  </ul>
+  <p>Причина — чтобы вторая сторона поездки не осталась без связи. Завершите или отмените поездку, после чего удаление станет доступно.</p>
+</div>
+
+<h2>Если у вас есть баланс</h2>
+<p>Если на вашем балансе водителя остались средства, они <strong>не возвращаются</strong> — свяжитесь с администратором до удаления. Если есть задолженность, удаление её не аннулирует: финансовая запись сохраняется.</p>
+
+<h2>Дополнительные вопросы</h2>
+<div class="card">
+  <p>Почта: <a href="mailto:uzynagashtaxi@gmail.com">uzynagashtaxi@gmail.com</a><br>
+  Телефон: <a href="tel:+77073088272">+7 707 308 8272</a></p>
+  <p>О том, как мы обрабатываем данные, читайте в <a href="privacy.html">Политике конфиденциальности</a>.</p>
+</div>
+
+</section>
+
+<footer>
+  © 2026 ИП «Damu IT» · Ұзынағаш Такси
+</footer>
+
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('kk').hidden = (l !== 'kk');
+  document.getElementById('ru').hidden = (l !== 'ru');
+  document.getElementById('btn-kk').setAttribute('aria-pressed', l === 'kk');
+  document.getElementById('btn-ru').setAttribute('aria-pressed', l === 'ru');
+  document.documentElement.lang = l;
+  try { localStorage.setItem('lang', l); } catch(e) {}
+}
+try {
+  var saved = localStorage.getItem('lang');
+  if (saved === 'ru') setLang('ru');
+} catch(e) {}
+</script>
+
+</body>
+</html>
