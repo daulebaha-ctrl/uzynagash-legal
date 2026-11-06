@@ -3,44 +3,329 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ұзынағаш Такси — Заңды құжаттар</title>
+<title>Ұзынағаш Такси — ауылдың өз таксиі</title>
+<meta name="description" content="Ұзынағаш Такси — Ұзынағаш ауылы мен Алматы, Қарғалы бағыттары үшін такси қосымшасы. Бағасы алдын ала белгілі, Kaspi арқылы төлеуге болады.">
+<meta name="theme-color" content="#14161B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ұзынағаш Такси">
+<meta property="og:description" content="Ауылдың өз таксиі: бағасы алдын ала белгілі, бес секундта шақырылады.">
+<meta property="og:url" content="https://daulebaha-ctrl.github.io/uzynagash-legal/">
+<meta property="og:locale" content="kk_KZ">
+<meta property="og:locale:alternate" content="ru_RU">
+<link rel="canonical" href="https://daulebaha-ctrl.github.io/uzynagash-legal/">
+
 <style>
-:root{--amber:#F5A623;--amber-d:#D9881A;--ink:#1a1a1a;--muted:#666;--bg:#ffffff;--soft:#FFF8EE;--border:#eee}
+/* Түстер қосымшаның өз токендерінен алынған (lib/core/theme/app_colors.dart):
+   амбер primary/primaryDark, қою фон darkTop→darkBottom, ink textPrimary. */
+:root{
+  --amber:#F5A623; --amber-d:#D9881A; --amber-deep:#B57A08;
+  --soft:#FFF8EE; --amber-tint:#FFF9EE;
+  --ink:#14161B; --muted:#71767F; --faint:#9AA0A8;
+  --bg:#ffffff; --panel:#F4F5F7; --border:#ebecee;
+  --dark-top:#212429; --dark-bottom:#14161B;
+}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-.wrap{max-width:760px;margin:0 auto;padding:20px 18px 60px}
-header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);z-index:10}
-.hd{max-width:760px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.brand{font-weight:800;font-size:16px;color:var(--ink)}
-.brand span{color:var(--amber-d)}
-.toggle{display:flex;background:var(--soft);border:1px solid var(--border);border-radius:999px;overflow:hidden}
-.toggle button{border:0;background:transparent;padding:6px 14px;font-weight:700;font-size:13px;color:var(--muted);cursor:pointer}
-.toggle button.active{background:var(--amber);color:#fff}
-h1{font-size:22px;margin:18px 0 4px}
-.eff{color:var(--muted);font-size:13px;font-style:italic;margin:0 0 18px}
-h2{font-size:16px;margin:22px 0 6px;color:var(--amber-d)}
-p{margin:8px 0}
-ul{margin:8px 0;padding-left:20px}
-li{margin:4px 0}
-.back{display:inline-block;margin-top:8px;color:var(--amber-d);text-decoration:none;font-weight:700;font-size:14px}
-.card{display:block;border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:12px 0;text-decoration:none;color:var(--ink);background:var(--soft)}
-.card b{display:block;font-size:17px}
-.card small{color:var(--muted)}
-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
-.hide{display:none}
+body{
+  margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+img,svg{max-width:100%}
+a{color:var(--amber-deep)}
 
+/* ── Басы ──────────────────────────────────────────────────────────── */
+header{
+  position:sticky; top:0; z-index:10;
+  background:rgba(255,255,255,.96); -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px); border-bottom:1px solid var(--border);
+}
+.hd{
+  max-width:760px; margin:0 auto; padding:10px 18px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:16px}
+.brand span{color:var(--amber-d)}
+.mark{flex:0 0 auto; width:28px; height:28px}
+
+.langbar{display:flex; gap:6px}
+.langbar button{
+  border:1px solid var(--border); background:var(--bg); color:var(--muted);
+  padding:6px 12px; border-radius:999px; font:inherit; font-size:13px;
+  font-weight:700; cursor:pointer;
+}
+.langbar button[aria-pressed="true"]{
+  background:var(--amber); border-color:var(--amber); color:#fff;
+}
+
+/* ── Жалпы ─────────────────────────────────────────────────────────── */
+.wrap{max-width:760px; margin:0 auto; padding:0 18px 56px}
+section[hidden]{display:none}
+
+/* ── Hero ──────────────────────────────────────────────────────────── */
+.hero{
+  margin:18px 0 0; padding:30px 22px 26px; border-radius:20px; color:#fff;
+  background:linear-gradient(160deg,var(--dark-top),var(--dark-bottom));
+}
+.hero h1{margin:0; font-size:28px; line-height:1.25; letter-spacing:-.3px}
+.hero h1 b{color:var(--amber)}
+.hero p{margin:12px 0 0; font-size:16px; color:#d7dade; max-width:46ch}
+.cta{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:22px 0 0}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--amber); color:#1A1200; text-decoration:none;
+  font-weight:800; font-size:16px; padding:14px 22px; border-radius:14px;
+}
+.btn:active{background:var(--amber-d)}
+.cta small{color:#9ca1a8; font-size:13px}
+
+/* ── Артықшылықтар ─────────────────────────────────────────────────── */
+h2{font-size:19px; margin:34px 0 2px}
+.lede{margin:0 0 14px; color:var(--muted); font-size:14px}
+
+.feats{display:grid; gap:12px; grid-template-columns:1fr}
+@media (min-width:620px){ .feats{grid-template-columns:1fr 1fr} }
+.feat{
+  display:flex; gap:13px; align-items:flex-start;
+  border:1px solid var(--border); border-radius:16px; padding:15px 16px;
+  background:var(--bg);
+}
+.ico{
+  flex:0 0 auto; width:38px; height:38px; border-radius:11px;
+  background:var(--soft); display:flex; align-items:center; justify-content:center;
+}
+.ico svg{width:20px; height:20px; display:block}
+.feat b{display:block; font-size:15.5px; margin-bottom:2px}
+.feat p{margin:0; font-size:14px; color:var(--muted)}
+
+/* ── Карточка сілтемелер ───────────────────────────────────────────── */
+.card{
+  display:block; text-decoration:none; color:var(--ink);
+  border:1px solid var(--border); border-radius:14px;
+  padding:14px 16px; margin:10px 0; background:var(--amber-tint);
+}
+.card b{display:block; font-size:15.5px}
+.card small{color:var(--muted); font-size:13px}
+
+/* ── Байланыс ──────────────────────────────────────────────────────── */
+.contact{
+  border:1px solid var(--border); border-radius:16px; padding:16px 18px;
+  background:var(--panel); margin:12px 0 0;
+}
+.contact div{margin:4px 0; font-size:15px}
+.contact .addr{color:var(--muted); font-size:14px}
+
+footer{
+  margin:30px 0 0; padding-top:16px; border-top:1px solid var(--border);
+  color:var(--faint); font-size:13px;
+}
 </style>
 </head>
+
 <body>
-<header><div class="hd"><div class="brand">Ұзынағаш <span>Такси</span></div></div></header>
+
+<header>
+  <div class="hd">
+    <div class="brand">
+      <!-- Белгі: амбер такси шамы. Сыртқы файл ЖОҚ — бет толық дербес. -->
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="13" width="28" height="12" rx="3.5" fill="#F5A623"/>
+        <rect x="9" y="7" width="14" height="6" rx="2" fill="#D9881A"/>
+        <circle cx="9.5" cy="25" r="3.2" fill="#14161B"/>
+        <circle cx="22.5" cy="25" r="3.2" fill="#14161B"/>
+        <rect x="6" y="16.5" width="20" height="3" rx="1.5" fill="#fff" opacity=".85"/>
+      </svg>
+      Ұзынағаш <span>Такси</span>
+    </div>
+    <div class="langbar">
+      <button id="btn-kk" aria-pressed="true" onclick="setLang('kk')">Қазақша</button>
+      <button id="btn-ru" aria-pressed="false" onclick="setLang('ru')">Русский</button>
+    </div>
+  </div>
+</header>
+
 <div class="wrap">
-  <h1>Заңды құжаттар / Правовые документы</h1>
-  <p class="eff">Ұзынағаш Такси · ИП «Damu IT»</p>
-  <a class="card" href="privacy.html"><b>Құпиялылық саясаты</b><small>Политика конфиденциальности (KZ / RU)</small></a>
-  <a class="card" href="terms.html"><b>Пайдалану шарттары</b><small>Условия использования (KZ / RU)</small></a>
-  <a class="card" href="delete-account.html"><b>Аккаунтты өшіру</b><small>Удаление аккаунта (KZ / RU)</small></a>
-  <footer>ИП «Damu IT» · +7 707 308 82 72 · daulebaha@gmail.com<br>Алматы облысы, Жамбыл ауданы, Ұзынағаш ауылы, Молдағұлова көшесі, 35</footer>
+
+<!-- ================= ҚАЗАҚША ================= -->
+<section id="kk">
+
+  <div class="hero">
+    <h1>Ауылдың <b>өз таксиі</b></h1>
+    <p>Ұзынағаш ауылының ішінде де, Алматы мен Қарғалы бағытында да таксиді
+       бес секундта шақырыңыз — бағасы отырмай тұрып белгілі болады.</p>
+    <div class="cta">
+      <a class="btn" href="#" aria-disabled="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+          <path d="M12 3v11.6l4.3-4.3 1.4 1.4L12 18.4 6.3 11.7l1.4-1.4L12 14.6V3h0zM4 19h16v2H4z"/>
+        </svg>
+        Жүктеу
+      </a>
+      <small>Play Market-те жақында</small>
+    </div>
+  </div>
+
+  <h2>Неге Ұзынағаш Такси</h2>
+  <p class="lede">Ауыл тұрғыны үшін жасалған: ірі батырма, қарапайым ағын.</p>
+
+  <div class="feats">
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div><b>Жылдам шақыру</b>
+        <p>Қайдан-қайда — екі өріс, болды. Жақын жүргізушіні сервер өзі
+           табады да, ұсынысты кезекпен жібереді.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/>
+        <path d="M6 14.5h4"/></svg></div>
+      <div><b>Қолма-қол та, Kaspi да</b>
+        <p>Жүргізушіге қолына беріңіз немесе Kaspi/Halyk нөміріне аударыңыз —
+           нөмірі экранда көрсетіледі.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/>
+        <circle cx="12" cy="10" r="2.5"/></svg></div>
+      <div><b>Ауылға бейімделген</b>
+        <p>Көшелер мен танымал жерлер тізімде дайын тұрады, ал Алматы мен
+           Қарғалы бағытының бағасы бекітілген.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.8L12 16.9l-5.3 2.7 1.1-5.8L3.5 9.7l5.9-.8L12 3.5z"/>
+        </svg></div>
+      <div><b>Бағасы алдын ала</b>
+        <p>Тариф серверде есептеледі, сапар соңында өзгермейді. Жүргізушіні
+           де, жолаушыны да екі жақ бағалайды.</p></div>
+    </div>
+  </div>
+
+  <h2>Байланыс</h2>
+  <div class="contact">
+    <div>Телефон: <a href="tel:+77073088272">+7 707 308 8272</a></div>
+    <div>Пошта: <a href="mailto:uzynagashtaxi@gmail.com">uzynagashtaxi@gmail.com</a></div>
+    <div class="addr">Ә. Молдағұлова көшесі 35, Ұзынағаш ауылы,<br>
+      Жамбыл ауданы, Алматы облысы, 040600, Қазақстан</div>
+  </div>
+
+  <h2>Заңды құжаттар</h2>
+  <a class="card" href="privacy.html"><b>Құпиялылық саясаты</b>
+    <small>Қандай деректер жиналады және қалай қорғалады</small></a>
+  <a class="card" href="terms.html"><b>Пайдалану шарттары</b>
+    <small>Қызметті пайдалану ережелері</small></a>
+  <a class="card" href="delete-account.html"><b>Аккаунтты өшіру</b>
+    <small>Деректерімді жойғым келсе — не істеу керек</small></a>
+
+  <footer>Жеке кәсіпкер «Damu IT» · Ұзынағаш Такси</footer>
+</section>
+
+<!-- ================= РУССКИЙ ================= -->
+<section id="ru" hidden>
+
+  <div class="hero">
+    <h1>Своё такси <b>для села</b></h1>
+    <p>Вызовите такси за пять секунд — по Узынагашу, а также в Алматы и
+       Каргалы. Цена известна до того, как вы сядете в машину.</p>
+    <div class="cta">
+      <a class="btn" href="#" aria-disabled="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+          <path d="M12 3v11.6l4.3-4.3 1.4 1.4L12 18.4 6.3 11.7l1.4-1.4L12 14.6V3h0zM4 19h16v2H4z"/>
+        </svg>
+        Скачать
+      </a>
+      <small>Скоро в Play Market</small>
+    </div>
+  </div>
+
+  <h2>Почему Узынагаш Такси</h2>
+  <p class="lede">Сделано для сельчан: крупные кнопки, простой путь.</p>
+
+  <div class="feats">
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div><b>Быстрый вызов</b>
+        <p>Откуда и куда — два поля, и всё. Ближайшего водителя находит
+           сервер и рассылает предложение по очереди.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/>
+        <path d="M6 14.5h4"/></svg></div>
+      <div><b>Наличные или Kaspi</b>
+        <p>Отдайте водителю наличными или переведите на его номер
+           Kaspi/Halyk — номер показан на экране.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/>
+        <circle cx="12" cy="10" r="2.5"/></svg></div>
+      <div><b>Под село, а не под город</b>
+        <p>Улицы и знакомые места уже в списке, а цена до Алматы и Каргалы
+           фиксированная.</p></div>
+    </div>
+
+    <div class="feat">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#B57A08" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.8L12 16.9l-5.3 2.7 1.1-5.8L3.5 9.7l5.9-.8L12 3.5z"/>
+        </svg></div>
+      <div><b>Цена заранее</b>
+        <p>Тариф считается на сервере и в конце поездки не меняется. Оценку
+           ставят друг другу обе стороны.</p></div>
+    </div>
+  </div>
+
+  <h2>Контакты</h2>
+  <div class="contact">
+    <div>Телефон: <a href="tel:+77073088272">+7 707 308 8272</a></div>
+    <div>Почта: <a href="mailto:uzynagashtaxi@gmail.com">uzynagashtaxi@gmail.com</a></div>
+    <div class="addr">ул. А. Молдагуловой 35, село Узынагаш,<br>
+      Жамбылский район, Алматинская область, 040600, Казахстан</div>
+  </div>
+
+  <h2>Правовые документы</h2>
+  <a class="card" href="privacy.html"><b>Политика конфиденциальности</b>
+    <small>Какие данные собираются и как они защищены</small></a>
+  <a class="card" href="terms.html"><b>Условия использования</b>
+    <small>Правила пользования сервисом</small></a>
+  <a class="card" href="delete-account.html"><b>Удаление аккаунта</b>
+    <small>Что делать, если нужно удалить свои данные</small></a>
+
+  <footer>ИП «Damu IT» · Узынагаш Такси</footer>
+</section>
+
 </div>
+
+<script>
+/* Тіл ауыстырғышы — privacy.html/terms.html/delete-account.html-дағы
+   механизмнің ДӘЛ ӨЗІ. Сондықтан таңдау беттер арасында САҚТАЛАДЫ
+   (ортақ localStorage кілті: 'lang'). */
+function setLang(l){
+  document.getElementById('kk').hidden = (l !== 'kk');
+  document.getElementById('ru').hidden = (l !== 'ru');
+  document.getElementById('btn-kk').setAttribute('aria-pressed', l === 'kk');
+  document.getElementById('btn-ru').setAttribute('aria-pressed', l === 'ru');
+  document.documentElement.lang = l;
+  try { localStorage.setItem('lang', l); } catch(e) {}
+}
+try {
+  var saved = localStorage.getItem('lang');
+  if (saved === 'ru') setLang('ru');
+} catch(e) {}
+</script>
+
 </body>
 </html>
